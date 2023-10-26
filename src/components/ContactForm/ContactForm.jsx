@@ -14,8 +14,6 @@ const ContactForm = () => {
 
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
-  const nameInputId = nanoid();
-  const numberInputId = nanoid();
 
   const handleChange = evt => {
     const { name, value } = evt.target;
@@ -44,7 +42,7 @@ const ContactForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Label htmlFor={nameInputId}>
+      <Label>
         Name:
         <Input
           type="text"
@@ -54,11 +52,10 @@ const ContactForm = () => {
           value={formData.name}
           placeholder="Enter your name"
           onChange={handleChange}
-          id={nameInputId}
           required
         />
       </Label>
-      <Label htmlFor={numberInputId}>
+      <Label>
         Number:
         <Input
           type="tel"
@@ -68,7 +65,6 @@ const ContactForm = () => {
           value={formData.number}
           placeholder="Enter your number"
           onChange={handleChange}
-          id={numberInputId}
           required
         />
       </Label>
